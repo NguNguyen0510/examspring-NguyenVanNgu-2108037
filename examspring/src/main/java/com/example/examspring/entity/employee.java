@@ -21,5 +21,5 @@ public class employee {
     @Id
     private int id;
     private String name;
-    private double wage;
+    private String wage;
 }

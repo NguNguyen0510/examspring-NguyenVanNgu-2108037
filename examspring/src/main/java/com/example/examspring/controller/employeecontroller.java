@@ -8,22 +8,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-public class employeecontroller {
+import java.util.List;
+
+public class employeecontroller extends EmployeeService {
 
     @RestController
     public class EmployeeController {
         @Autowired
         private EmployeeService employeeService;
 
-        @GetMapping("/create")
-        public String createEmployee() {
-            employeeService.createEmployee(1, "John Doe", 50000.00);
-            return "Employee created!";
+
+        @PostMapping(value="/create")
+        public ResponseEntity<?> createNewItem(@RequestBody employeeDto employeeDtoDto, HttpServletRequest request){
+            employeeDto classesDto1 = EmployeeService.(employee);
+            return ResponseEntity.ok(classesDto1);
         }
 
         @GetMapping("/findAll")
-        public List<employee> findAllEmployees() {
-            return employeeService.findAllEmployees();
+        public List<employeeDto> getAllemployee() {
+            return employeeService.getAll();
         }
     }
 }
